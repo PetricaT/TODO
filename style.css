@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@font-face{
+    font-family: 'Digital';
+    src: url('./Digital7.woff2') format('woff2');
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+    background-color: #303030;;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+/* remove hyperlink underline */
+a {
+    color: #fff;
+    text-decoration: none;
+}
+/* remove list padding and margin */
+ul, ol {
+    margin: 0;
+    padding: 0;
+
+}
+
+li {
+    /* Content Style */
+    background-color: #454545;
+    list-style: none;
+    color: white;
+    border: #414141;
+    border-width: 2px;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 20vh; /* idk man */
+}
+
+.navbar{
+    background-color: #404040;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
+}
+
+.calculator{
+    background-color: black;
+    color: #fff;
+    width: 80%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    z-index: 1;
+}
+
+.display{
+    color: #000000;
+    width: 100%;
+    height: 100px;
+    background: radial-gradient(circle, rgba(211,226,226,1) 0%, rgba(181,177,149,1) 100%);
+    text-align: end;
+    position: relative;
+    overflow: hidden;
+}
+
+#result{
+    font-family:'Digital';
+    font-size: 5rem;
+}
+
+button{
+    margin: 0px;
+    padding: 0%;
+    font-size: 4rem;
+}
+
+.keypad{
+    font-size: 0;
+    display: flex;
+    height: 100%;
+}
+
+.numbers, .numbers button{
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    background: #252525;
+    border: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-top: 1px;
+
+}
+
+.numbers button:hover{
+    background: #353535;
+}
+
+#row1, #row1 button, #row2, #row2 button, #row3, #row3 button, #row4, #row4 button{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.operands{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 20%;
+    height: 90%;
+    background: red;
+}
+
+#multiply, #multiply button, #divide, #divide button, #add, #add button, #substract, #substract button, #equal, #equal button, #clear, #clear button{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#substract, #add, #multiply, #divide{
+    background: #2c2c2c;
+    border: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-top: 1px;
+}
+#clear{
+    background: rgb(200, 0, 0);
+    border: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-top: 1px;
+}
+#clear:hover{
+    background: rgb(250, 0, 0);
+}
+
+#equal{
+    background: #ffa600;
+    border: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-top: 1px;
+}
+#equal:hover{
+    background: #f1bb55;
+}
+
+#substract:hover, #add:hover, #multiply:hover, #divide:hover{
+    background: #353535;
+}
+
+button:active{
+    border: #000000;
+}
