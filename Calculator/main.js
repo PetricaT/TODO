@@ -1,24 +1,18 @@
-var stack = [];
-var num1 = [];
-var num2 = [];
-var operand;
+var clicked = [undefined, null]; // Global variable to store the last clicked button
+
+addEventListener('click', function(onClick){
+    console.log(clicked)
+    if(clicked[0] == undefined){
+        clicked[0] = onClick.target.innerHTML;
+    } else {
+        var temp = clicked[0];
+        clicked[0] = onClick.target.innerHTML;
+        clicked[1] = temp;
+    }
+});
 
 addEventListener('click', function(e){
-    var click = e.target.innerHTML;
-    stack.push(click)
-    if(click == "="){
-        console.log(stack)
-        for(var i = 0; i < stack.length; i++){
-            if(stack[i+1] < 10){
-                stack[i] = stack[i] + stack[i+1];
-                
-            }
-            console.log("Num1: " + num1)
-        }
-    }
-    if(click == "C"){
-        for(var i = 0; i < stack.length+10000; i++){
-        stack.pop();
-        }
-    }
+    console.log(clicked)
+    document.getElementById('result').innerHTML = clicked[0];
+    document.getElementById('history').innerHTML = clicked[1];
 });
