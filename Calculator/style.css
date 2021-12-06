@@ -5,6 +5,11 @@
     /* src: url('./Digital7.woff2') format('woff2'); */
 }
 
+:root{
+    --dark-primary: #353535;
+    --dark-secondary: #454545;
+}
+
 
 * {
     margin: 0;
@@ -85,6 +90,7 @@ button{
     margin: 0px;
     padding: 0%;
     font-size: 4rem;
+    color: white;
 }
 
 .keypad{
@@ -100,7 +106,7 @@ button{
     flex-direction: column;
     justify-content: space-evenly;
 
-    background: #252525;
+    background: var(--dark-primary);
     border: #000000;
     border-style: solid;
     border-width: 1px;
@@ -109,7 +115,7 @@ button{
 }
 
 .numbers button:hover{
-    background: #353535;
+    background: var(--dark-secondary);
 }
 
 #row1, #row1 button, #row2, #row2 button, #row3, #row3 button, #row4, #row4 button{
@@ -158,6 +164,7 @@ button{
 #equal{
     background: #ffa600;
     border: #000000;
+    color: black;
     border-style: solid;
     border-width: 1px;
     border-top: 1px;
@@ -167,9 +174,10 @@ button{
 }
 
 #substract:hover, #add:hover, #multiply:hover, #divide:hover{
-    background: #353535;
+    background: var(--dark-secondary);
 }
 
 button:active{
     border: #000000;
+    background: rgba(65, 65, 65, 0.8);
 }
