@@ -61,6 +61,41 @@ function calculate() {
     }
 }
 
+//* IF YOU USE KEYBOARD, THIS ACTIVATES
+addEventListener('keydown', function (event) {
+    if (values.num1[0] == null) {
+    inputItem = event.key;
+        if (inputItem <= 9) {
+            values.num1[0] = inputItem;
+        }
+        console.log(inputItem);
+    } else {
+        inputItem = event.key;
+        if (inputItem <= 9) {
+            // make number switch when operator is present
+            if (values.operator == null) {
+                values.num1.push(Number(inputItem));
+            }
+            if (values.operator != null) {
+                values.num2.push(Number(inputItem));
+            }
+            console.log(inputItem);
+        };
+        if (inputItem == "+" || inputItem == "-" || inputItem == "/" || inputItem == "*") {
+            values.operator = inputItem;
+        }
+        if (inputItem == "C" || inputItem == "c") {
+            fullClear()
+        }
+        if (inputItem == "=" || inputItem == "Enter") {
+            // r/theyDidTheMath
+            showRes = true;
+            calculate();
+        }
+    }
+});
+ 
+//* IF YOU USE MOUSE, THIS ACTIVATES
 addEventListener('click', function (onClick) {
     if (values.num1[0] == null) {
         inputItem = onClick.target.innerHTML;
@@ -92,6 +127,7 @@ addEventListener('click', function (onClick) {
     }
 });
 
+//* IF YOU USE MOUSE, THIS ACTIVATES
 addEventListener('click', function (e) {
     // Write out number 1
     if (values.num1 != null && values.operator == null) {
@@ -117,6 +153,33 @@ addEventListener('click', function (e) {
         fullClear();
     }
     document.getElementById('history').innerHTML = values.history;
-    console.log(values)
-    console.log(showRes)
+});
+
+//* IF YOU USE KEYBOARD, THIS ACTIVATES
+addEventListener('keydown', function (e) {
+    // Write out number 1
+    if (values.num1 != null && values.operator == null) {
+        values.numInt1 = '';
+        for (var i = 0; i < values.num1.length; i++) {
+            values.numInt1 = values.numInt1 + values.num1[i]
+        }
+        document.getElementById('result').innerHTML = values.numInt1;
+    }
+    // Write out number 2 
+    else if (values.operator != null && showRes == false) {
+        values.numInt2 = '';
+        for (var i = 0; i < values.num2.length; i++) {
+            values.numInt2 = values.numInt2 + values.num2[i]
+        }
+        document.getElementById('result').innerHTML = values.numInt1 + values.operator + values.numInt2;
+        if(values.numInt1 == "69" && values.numInt2 == "420" && values.operator == "/"){
+            show_image();
+            fullClear();
+        }
+    }
+    // Write out of result exists
+    else if (values.result != null && values.operator != null) {
+        fullClear();
+    }
+    document.getElementById('history').innerHTML = values.history;
 });
