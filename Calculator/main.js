@@ -183,3 +183,13 @@ addEventListener('keydown', function (e) {
     }
     document.getElementById('history').innerHTML = values.history;
 });
+
+//? Multiple event listeners can be added using this 
+/*  ES6 ONLY
+['click','ontouchstart'].forEach( evt => 
+    element.addEventListener(evt, function(e){
+
+    });
+);
+*/
+//? Very good code
