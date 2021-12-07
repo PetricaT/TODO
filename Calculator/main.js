@@ -52,7 +52,13 @@ function calculate(){
         values.result = values.numInt1 / values.numInt2;
         values.history = `${values.numInt1} / ${values.numInt2}`;
     }
-    if(showRes == true){document.getElementById('result').innerHTML = values.result;}
+    if(showRes == true){
+        if(values.result % 1 != 0){
+        document.getElementById('result').innerHTML = values.result.toFixed(5);
+        } else {
+        document.getElementById('result').innerHTML = values.result;
+        }
+    } 
 }
 
 addEventListener('click', function(onClick){
@@ -105,8 +111,7 @@ addEventListener('click', function(e){
     } 
     // Write out of result exists
     else if(values.result != null && values.operator != null) {
-        values.numInt1 = Number(values.result);
-        softClear();
+        fullClear();
     }
     document.getElementById('history').innerHTML = values.history;
     console.log(values)

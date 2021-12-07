@@ -8,6 +8,7 @@
 :root{
     --dark-primary: #353535;
     --dark-secondary: #454545;
+    --dark-tetriary: #2c2c2c;
 }
 
 
@@ -109,6 +110,7 @@ button{
     padding: 0%;
     font-size: 5vh;
     color: white;
+    border-radius: 1rem;
 }
 
 .keypad{
@@ -128,14 +130,13 @@ button{
     border-style: solid;
     border-width: 1px;
     border-top: 1px;
-
 }
 
 .numbers button:hover{
     background: var(--dark-secondary);
 }
 
-#row1, #row1 button, #row2, #row2 button, #row3, #row3 button, #row4, #row4 button{
+#row1, #row1 button, #row2, #row2 button, #row3, #row3 button, #row4 #button4, #row4, #row4 button{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -152,7 +153,7 @@ button{
     justify-content: space-evenly;
     width: 20%;
     height: 90%;
-    background: red;
+    background: var(--dark-tetriary);
 }
 
 #multiply, #multiply button, #divide, #divide button, #add, #add button, #substract, #substract button, #equal, #equal button, #clear, #clear button{
