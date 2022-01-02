@@ -9,24 +9,27 @@ function daysInMonth(month, year) {
     return new Date(year, month, 0).getDate();
 }
 
-function onLoad() {
-    setMonth();
-    console.log(name);
-}
-
+addEventListener('click', function (onClick) {
+    var addTask = onClick.target.innerHTML;
+    taskContent = getTaskContent();
+    if (addTask == "+" && taskContent != undefined) {
+        // APPEND TASK
+        appendTask(taskContent);
+    }
+});
 
 // Create a div for each day in the month
 for (var i = 0; i < daysInMonth(month, year); i++) {
+    j = i + 1;
     // :v create a div with day number 
-    // set the variable "day" as the createElement function for less typing
     var div = document.createElement('div');
     // searches for the container that holds the days and appends a empty div
     document.getElementById('days').appendChild(div);
     // gives the div the class of "day" and a unique id
     div.setAttribute("class", "day");
-    div.setAttribute("id", "day-" + i + 1);
+    div.setAttribute("id", "day-" + j);
     // writes the day number inside the div
-    document.getElementById('day-' + i + 1).innerHTML = i + 1;
+    document.getElementById('day-' + j).innerHTML = j;
 }
 
 
@@ -35,8 +38,39 @@ function setMonth() {
     document.getElementById("month").innerHTML = name;
 }
 
+function getTaskContent() {
+    return document.getElementById("taskGenerator").value;
+}
 
+function appendTask(description) {
+    var div = document.createElement('div');
+    var label = document.createElement('label');
+    var randNum = Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
 
+    var taskContainer = document.getElementById("checklist");
+    taskContainer.appendChild(div);
+    div.setAttribute('id', 'task-' + randNum);
+
+    var randTask = document.getElementById('task-' + randNum);
+    randTask.appendChild(label);
+    label.setAttribute('class', 'b-contain');
+    label.setAttribute('id', 'label-' + randNum);
+    appendLabel(description, randNum);
+}
+
+function appendLabel(description, randNum) {
+    var span = document.createElement('span');
+    var input = document.createElement('input');
+    var div = document.createElement('div');
+    var randLabel = document.getElementById('label-' + randNum);
+    randLabel.appendChild(span);
+    randLabel.appendChild(input);
+    span.innerHTML = description;
+    input.setAttribute('type', 'checkbox');
+
+    randLabel.appendChild(div);
+    div.setAttribute('class', 'b-input');
+}
 
 
 
@@ -55,5 +89,8 @@ function debugSetBackground() {
     }
 };
 
+function onLoad() {
+    setMonth();
+}
 // When the page loads, execute function onLoad
 document.onload = onLoad()
