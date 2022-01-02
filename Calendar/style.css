@@ -6,7 +6,22 @@
     scroll-behavior: smooth;
     font-family: 'Spline Sans', sans-serif;
     cursor: default;
-    scrollbar-track-color: #253346;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--primary);
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary); 
+    border-radius: 35px;       
+    border: 2px solid var(--tetriary); 
 }
 
 :root{
@@ -84,7 +99,7 @@
 }
 
 #event-date{
-    background: red;
+    background: var(--secondary);
     text-align: center;
     position: absolute;
     font-size: 1.2rem;
