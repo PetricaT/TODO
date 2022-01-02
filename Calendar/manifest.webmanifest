@@ -1,5 +1,5 @@
 {
-  "background_color": "white",
+  "background_color": "#2c3d53",
   "description": "A helpful PWA to manage your time and dates.",
   "display": "fullscreen",
   "icons": [
@@ -7,10 +7,14 @@
       "src": "./android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "./android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "name": "Calendar & Management app",
+  "name": "Calendar & Management App",
   "short_name": "Calendar",
   "start_url": "./index.html"
 }
-
