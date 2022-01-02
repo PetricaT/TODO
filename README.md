@@ -1,5 +1,5 @@
 # TODO
-A part of a collection of JS/TS projects.
+A collection of projects I made (and probably am making) in JS/TS.
 
 Currently in this repo are:
 
