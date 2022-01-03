@@ -1,15 +1,14 @@
 # TODO
 
-A collection of projects I made (and probably am making) in JS/TS. 
+A collection of projects I made (and probably am making) in JS/TS.
 
-Currently in this repo are: 
+Currently in this repo are:
 
 Calculator
-[![Calculator Banner](https://b.catgirlsare.sexy/YdDggbsGmDVi.png "Calculator Banner")](https://ozzymand.github.io/TODO/Calculator/) 
+[![Calculator Banner](https://b.catgirlsare.sexy/YdDggbsGmDVi.png "Calculator Banner")](https://ozzymand.github.io/TODO/Calculator/)
 
 Converter
-[![Converter Banner](https://b.catgirlsare.sexy/YdDggbsGmDVi.png "Converter Banner")](https://ozzymand.github.io/TODO/Converter/) 
+[![Converter Banner](https://b.catgirlsare.sexy/YdDggbsGmDVi.png "Converter Banner")](https://ozzymand.github.io/TODO/Converter/)
 
 Calendar
-[![Calendar Banner](https://b.catgirlsare.sexy/YdDggbsGmDVi.png "Calendar Banner")](https://ozzymand.github.io/TODO/Calendar/) 
-
+[![Calendar Banner](https://imgur.com/a/DJ2wBgR "Calendar Banner")](https://ozzymand.github.io/TODO/Calendar/)

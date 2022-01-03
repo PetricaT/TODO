@@ -15,7 +15,7 @@
       "type": "image/png"
     }
   ],
-  "name": "Calendar & Management App",
+  "name": "Calendar",
   "short_name": "Calendar",
   "start_url": "./index.html"
 }

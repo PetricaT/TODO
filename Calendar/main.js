@@ -2,6 +2,8 @@ var debugMode = false;
 const year = new Date().getYear();
 const month = new Date().getMonth();
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var addTaskBtn = document.getElementById('addTask');
+var taskContainer = document.querySelector("#taskContainer");
 
 if (debugMode) { window.onload = debugSetBackground; };
 
@@ -9,21 +11,41 @@ function daysInMonth(month, year) {
     return new Date(year, month, 0).getDate();
 }
 
-addEventListener('click', function (onClick) {
+addEventListener('keydown', function (e) {
+    taskContent = getTaskContent();
+    if (e.key == "Enter" && taskContent != "") {
+        appendTask(taskContent);
+    }
+});
+
+
+addTaskBtn.addEventListener('click', function (onClick) {
     var addTask = onClick.target.innerHTML;
     taskContent = getTaskContent();
-    if (addTask == "+" && taskContent != undefined) {
+    if (addTask == "+" && taskContent != "") {
         // APPEND TASK
         appendTask(taskContent);
     }
 });
 
+taskContainer.addEventListener('click', function (e) {
+    divID = e.path[2];
+    console.log(divID);
+    var check = e.altKey;
+    if (check) {
+        divID.style.textDecoration = 'line-through';
+        divID.style.color = "#aaaaaa";
+    } else {
+        divID.style.textDecoration = 'none';
+        divID.style.color = "#ffffff";
+    };
+});
+
 // Create a div for each day in the month
 for (var i = 0; i < daysInMonth(month, year); i++) {
     j = i + 1;
-    // :v create a div with day number 
     var div = document.createElement('div');
-    // searches for the container that holds the days and appends a empty div
+    // search for the day type and append to corresponding collumn
     document.getElementById('days').appendChild(div);
     // gives the div the class of "day" and a unique id
     div.setAttribute("class", "day");
@@ -38,31 +60,38 @@ function setMonth() {
     document.getElementById("month").innerHTML = name;
 }
 
+
+// All of this to make the task button add tasks via a template
 function getTaskContent() {
     return document.getElementById("taskGenerator").value;
 }
 
+// The function that starts creating the template
 function appendTask(description) {
     var div = document.createElement('div');
     var label = document.createElement('label');
-    var randNum = Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
+    var randID = Math.floor(Math.random() * (100000 - 1 + 1)) + 1;
 
-    var taskContainer = document.getElementById("checklist");
+    var taskContainer = document.getElementById("taskContainer");
     taskContainer.appendChild(div);
-    div.setAttribute('id', 'task-' + randNum);
+    div.setAttribute('id', randID);
 
-    var randTask = document.getElementById('task-' + randNum);
+    var randTask = document.getElementById(randID);
     randTask.appendChild(label);
     label.setAttribute('class', 'b-contain');
-    label.setAttribute('id', 'label-' + randNum);
-    appendLabel(description, randNum);
+    label.setAttribute('id', 'label-' + randID);
+    appendLabel(description, randID);
+    document.getElementById("taskGenerator").value = "";
+    return randID;
 }
 
-function appendLabel(description, randNum) {
+// The continuation of the previous function but within 
+// ONLY the label scope of the template
+function appendLabel(description, randID) {
     var span = document.createElement('span');
     var input = document.createElement('input');
     var div = document.createElement('div');
-    var randLabel = document.getElementById('label-' + randNum);
+    var randLabel = document.getElementById('label-' + randID);
     randLabel.appendChild(span);
     randLabel.appendChild(input);
     span.innerHTML = description;
@@ -72,7 +101,7 @@ function appendLabel(description, randNum) {
     div.setAttribute('class', 'b-input');
 }
 
-
+// registers the service worker proxy thing so the page can be made into an desktop/android APP (works offline too)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js');

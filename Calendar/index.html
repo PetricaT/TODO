@@ -10,7 +10,7 @@
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <link rel="stylesheet" href="./style.css">
-    <script src="main.js" defer></script>
+    <script src="main.js" async></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -18,8 +18,16 @@
 <body>
     <div class="calendar">
         <div class="dates">
-            <div class="month" id="month">Month_Name</div>
+            <div class="month" id="month"></div> <!-- This is where the month name gets palced -->
             <div class="days" id="days">
+                <!-- WIP, too lazy to finish | These containers hold each day in column -->
+                <div id="monday"></div>
+                <div id="tuesday"></div>
+                <div id="wednesday"></div>
+                <div id="thursday"></div>
+                <div id="friday"></div>
+                <div id="saturday"></div>
+                <div id="sunday"></div>
             </div>
             <div class="events">
                 <div id="event-title">No event today</div>
@@ -29,6 +37,8 @@
         </div>
         <div class="checklist" , id="checklist">
             <header>Tasks</header>
+            <div class="taskContainer" , id="taskContainer"></div>
+            <div class="controls" , id="controls">Hold <kbd>ALT</kbd> to strike-trough tasks</div>
             <div class="taskGenerator">
                 <input type="text" placeholder="Add a task!" id="taskGenerator"><button id="addTask">+</vr></button>
             </div>
