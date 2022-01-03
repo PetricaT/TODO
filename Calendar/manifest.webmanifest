@@ -1,5 +1,6 @@
 {
-  "background_color": "#black",
+  "background_color": "#2c3d53",
+  "theme_color": "#3d526e",
   "description": "A helpful PWA to manage your time and dates.",
   "display": "fullscreen",
   "icons": [
