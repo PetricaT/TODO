@@ -1,9 +1,11 @@
 var debugMode = false;
-const year = new Date().getYear();
-const month = new Date().getMonth();
+var date = new Date();
+const year = date.getYear();
+const month = date.getMonth();
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 var addTaskBtn = document.getElementById('addTask');
-var taskContainer = document.querySelector("#taskContainer");
+var taskContainer = document.getElementById("taskContainer");
 
 if (debugMode) { window.onload = debugSetBackground; };
 
@@ -32,16 +34,22 @@ taskContainer.addEventListener('click', function (e) {
     divID = e.path[2];
     console.log(divID);
     var check = e.altKey;
-    if (check) {
+    if (check && localStorage.getItem('theme') === 'theme-dark') {
         divID.style.textDecoration = 'line-through';
         divID.style.color = "#aaaaaa";
-    } else {
+    } else if (check && localStorage.getItem('theme') === 'theme-light') {
+        divID.style.textDecoration = 'line-through';
+        divID.style.color = "#aaaaaa";
+    } else if (!check && localStorage.getItem('theme') === 'theme-light') {
         divID.style.textDecoration = 'none';
-        divID.style.color = "#ffffff";
-    };
+        divID.style.color = 'var(--text)';
+    } else if (!check && localStorage.getItem('theme') === 'theme-dark') {
+        divID.style.textDecoration = 'none';
+        divID.style.color = 'var(--text)';
+    }
 });
-
-// Create a div for each day in the month
+//
+// Day zone
 for (var i = 0; i < daysInMonth(month, year); i++) {
     j = i + 1;
     var div = document.createElement('div');
@@ -53,8 +61,8 @@ for (var i = 0; i < daysInMonth(month, year); i++) {
     // writes the day number inside the div
     document.getElementById('day-' + j).innerHTML = j;
 }
-
-
+//
+// Set the month title
 function setMonth() {
     let name = months[month];
     document.getElementById("month").innerHTML = name;
@@ -108,11 +116,57 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+// theme switcher, why not?
+var themeSwitcherButton = document.getElementById('kbd');
+themeSwitcherButton.addEventListener('click', function () {
+    toggleTheme();
+});
+// function to set a given theme/color-scheme
+function setTheme(themeName) {
+    localStorage.setItem('theme', themeName);
+    document.documentElement.className = themeName;
+}
+// function to toggle between light and dark theme
+function toggleTheme() {
+    if (localStorage.getItem('theme') === 'theme-dark') {
+        setTheme('theme-light');
+    } else {
+        setTheme('theme-dark');
+    }
+}
+// Immediately invoked function to set the theme on initial load
+(function () {
+    var userTheme = localStorage.getItem('theme');
+    switch (userTheme) {
+        case 'theme-dark':
+            setTheme('theme-dark');
+            break;
+        case 'theme-light':
+            setTheme('theme-light');
+            break;
+    }
+})();
+//
+//
 
+function setTime() {
+    var date = new Date();
+    var seconds = date.getSeconds();
+    var minutes = date.getMinutes();
+    var hour = date.getHours();
+    var timeDisplay = document.getElementById('timeDisplay');
+    if (seconds.toString().length < 2) {
+        seconds = `0${seconds}`;
+    }
+    if (minutes.toString().length < 2) {
+        minutes = `0${minutes}`;
+    }
+    timeDisplay.innerHTML = `${hour}:${minutes}:${seconds}`;
+}
 
-
-
-
+var intervalId = window.setInterval(function () {
+    setTime();
+}, 1000);
 
 // Fun stuff for debug
 function debugSetBackground() {
@@ -127,6 +181,7 @@ function debugSetBackground() {
 
 function onLoad() {
     setMonth();
+    setTime();
 }
 // When the page loads, execute function onLoad
 document.onload = onLoad()

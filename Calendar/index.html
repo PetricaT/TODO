@@ -32,13 +32,17 @@
             <div class="events">
                 <div id="event-title">No event today</div>
                 <div id="event-description"></div>
-                <div id="event-date"></div>
+                <div id="timeDisplay"></div>
             </div>
         </div>
         <div class="checklist" , id="checklist">
             <header>Tasks</header>
             <div class="taskContainer" , id="taskContainer"></div>
-            <div class="controls" , id="controls">Hold <kbd>ALT</kbd> to strike-trough tasks</div>
+            <div class="controls" , id="controls">Hold
+                <div class="tooltip"><kbd id='kbd'>ALT</kbd>
+                    <span class="tooltiptext">Click me to change the theme</span>
+                </div> to strike-trough tasks
+            </div>
             <div class="taskGenerator">
                 <input type="text" placeholder="Add a task!" id="taskGenerator"><button id="addTask">+</vr></button>
             </div>
