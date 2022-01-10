@@ -1,45 +1,196 @@
+@import url('https://raw.githubusercontent.com/Ozzymand/BeltSS/main/Themes/Default/default.css');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+:root{
+    --dark-primary: #303030;
+    --dark-secondary: #454545;
+
+    --light-primary: #ffffff;
+    --light-secondary: #afafaf;
+
+    --blue-primary: rgb(73, 136, 255);
+    --blue-secondary: rgb(111, 161, 255);
+    --blue-primary-alpha: rgba(73, 136, 255, 0.5);
+
+
+    --green-primary: rgb(61, 255, 126);
+    --green-secondary: rgb(162, 253, 193);
+
+    --yellow-primary: rgb(255, 255, 56);
+    --yellow-secondary: rgb(212, 212, 0);
+
+    --red-primary: rgb(255, 49, 49);
+    --red-secondary: rgb(255, 71, 71);
+}
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
-}
-
-
-/* remove hyperlink underline */
-a {
-    color: #fff;
     text-decoration: none;
-}
-/* remove list padding and margin */
-ul, ol {
-    margin: 0;
-    padding: 0;
-
+    outline: 0;
 }
 
 li {
     /* Content Style */
-    background-color: #454545;
     list-style: none;
-    color: white;
     border: #414141;
     border-width: 2px;
     border-style: solid;
     display: flex;
     justify-content: center;
-    align-items: center;
     text-align: center;
     height: 20vh; /* idk man */
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap; 
+    position: relative;
+    color: #fff;
+}
+
+
+.navbar a{
+    color: #454545;
+    transition-timing-function: ease-in-out;
+    transition: 0.2s;
+}
+.navbar:hover a{
+    color: #fff;
+    transition-timing-function: ease-in-out;
+    transition: 0.2s;
+}
+
 .navbar{
-    background-color: #404040;
-    width: 20%;
+    width: 50px;
+    background-color: #454545;
+    overflow: hidden;
+    color: #454545;
+    font-size: 2rem;
     height: 100%;
     position: fixed;
-    font-size: calc(1.5vh + 1.5vw);
-    z-index: 3;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    transition-timing-function: ease-in-out;
+    transition: 0.2s;
+}
+
+
+.navbar:hover{
+    font-size: 2rem;
+    width: 250px;
+    transition-timing-function: ease-in-out;
+    transition: 0.2s;
+    color: white;
+}
+
+.converter{
+    background: #343434;
+    position: fixed;
+    width: calc(100% - 50px);
+    left: 50px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.wrapper{
+    position: relative;
+    height: 100%;
+    padding: 20px;
+}
+
+.button1{
+    background: var(--blue-primary);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 5%;
+    border-radius: 10px;
+}
+
+.button2{
+    background: var(--green-primary);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 5%;
+    border-radius: 10px;
+
+}
+
+.button3{
+    background: var(--red-primary);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 5%;
+    border-radius: 10px;
+}
+
+.input1{
+    padding-top: 20px;
+}
+
+input{
+    background: rgba(0, 0, 0, 0);
+    border-bottom: 2px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: #fff;
+    color: white;
+    border-style: solid;
+    text-align: center;
+    position: absolute;
+    left: 20px;
+    width: 25%;
+    transition: ease-in-out 100ms;
+}
+
+input:focus{
+    border-color: var(--blue-primary);
+    transition: ease-in-out 100ms;
+}
+
+#version-tag-blue {
+    background: var(--blue-secondary);
+    border: var(--blue-primary);
+    border-top-left-radius: 10px;
+    border-style: groove;
+    text-align: start;
+    position: fixed;
+    overflow:hidden;
+    right:  0px;
+    bottom: 0px;
+    width: 50px;
+    height: 27px;
+    z-index: 1000;
+    transition: ease-in-out;
+    transition-duration: 100ms;
+}
+
+#version-tag-blue:hover{
+    transition: ease-in-out;
+    transition-duration: 250ms;
+    width: 100px;
+    height: 250px;
+}
+
+#date{
+    position: relative;
+    bottom: 0;
+    top: 0;
 }
