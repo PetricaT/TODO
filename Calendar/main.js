@@ -144,6 +144,9 @@ function toggleTheme() {
         case 'theme-light':
             setTheme('theme-light');
             break;
+        default:
+            setTheme('theme-dark');
+            break;
     }
 })();
 //
