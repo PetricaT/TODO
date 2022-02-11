@@ -171,11 +171,6 @@ addEventListener('keydown', function (e) {
         for (var i = 0; i < values.num2.length; i++) {
             values.numInt2 = values.numInt2 + values.num2[i]
         }
-        document.getElementById('result').innerHTML = values.numInt1 + values.operator + values.numInt2;
-        if(values.numInt1 == "69" && values.numInt2 == "420" && values.operator == "/"){
-            show_image();
-            fullClear();
-        }
     }
     // Write out of result exists
     else if (values.result != null && values.operator != null) {
