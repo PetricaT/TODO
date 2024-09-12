@@ -1,0 +1,92 @@
+:root{
+	--background: #000;
+	--foreground: #fff;
+	--background-primary: #1f1f1f;
+	--background-secondary: #3a3a3a;
+	--day-past: #0f0f0f;
+	--accent: #1f9de6;
+}
+
+body {
+	display: flex;
+	margin-top: 50px;
+	justify-content: center;
+	background-color: var(--background);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+	width: 75px;
+	cursor: pointer;
+	box-shadow: 0 0 2px gray;
+	border: none;
+	outline: none;
+	padding: 5px;
+	border-radius: 5px;
+	color: var(--foreground);
+}
+
+#header {
+	padding: 10px;
+	color: var(--accent);
+	font-size: 26px;
+	font-family: sans-serif;
+	display: flex;
+	justify-content: space-between;
+}
+
+#header button {
+	justify-content: center;
+	background-color: var(--background-primary);
+}
+
+#generateMeal{
+	width: auto;
+	background-color: var(--accent) !important;
+}
+
+#container {
+	width: 770px;
+}
+
+#weekdays {
+	width: 100%;
+	display: flex;
+	color: var(--accent);
+}
+
+#weekdays div {
+	width: 100px;
+	padding: 10px;
+}
+
+#calendar {
+	width: 100%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.day {
+	width: 100px;
+	padding: 10px;
+	height: 100px;
+	cursor: pointer;
+	box-sizing: border-box;
+	background-color: var(--background-primary);
+	color: var(--foreground);
+	margin: 5px;
+	box-shadow: 0 0 3px var(--background-secondary);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.day:hover {
+	background-color: #3b3b3b;
+}
+
+.day+#currentDay {
+	background-color: var(--accent);
+	color: #000;
+}
